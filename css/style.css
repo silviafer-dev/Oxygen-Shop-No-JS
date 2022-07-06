@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Raleway:wght@300;400;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Raleway:wght@300;400;700;800&display=swap");
 
 /*Reset*/
 input,
@@ -17,7 +17,7 @@ textarea {
 
   /* Browsers have different default form fonts */
   font-size: 1rem;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 /* Remove the stupid outer glow in Webkit */
@@ -37,17 +37,16 @@ textarea {
 }
 
 :root {
-  --primary: #08A6E4;
-  --secundary: #FB3B64;
-  --special: #55DFB4;
+  --primary: #08a6e4;
+  --secundary: #fb3b64;
+  --special: #55dfb4;
   --shadow-primary: #08a8e34a;
   --shadow-secundary: #fb3c654a;
   --shadow-special: #54deb24a;
   --shadow-grey: #0000004a;
-  --white: #FFFFFF;
+  --white: #ffffff;
   --grey: #95989a;
-  --border-grey: #E8E9ED;
-
+  --border-grey: #e8e9ed;
 }
 
 /* IMPROVE Revisar los gap hay algunos en px y otros en rem */
@@ -55,7 +54,7 @@ body {
   box-sizing: border-box;
   margin: 0;
   /*TODO  Poner las fuentes en local y cambiarlo de aqui, esto es temporal para dar estilo general*/
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
 }
 
 .overflow-hidden {
@@ -164,7 +163,7 @@ button {
 
 .info__newsletter_p {
   color: var(--grey);
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 .info__newsletter__label {
@@ -172,8 +171,15 @@ button {
 }
 
 .percentage-scroller {
-  top: 0;
-  height: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  padding: 20px;
+  bottom: 20px;
+  left: 20px;
   background: linear-gradient(90deg, var(--primary) 25%, var(--special) 100%);
   position: fixed;
   z-index: 2;
@@ -224,7 +230,7 @@ button {
 .logo {
   margin: 0;
   color: var(--primary);
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 300;
   font-size: 26px;
 }
@@ -236,7 +242,7 @@ button {
 
 .nav__menu__a {
   position: relative;
-  color: #A5A5A5;
+  color: #a5a5a5;
   letter-spacing: 3.28px;
   font-size: 11px;
   font-weight: 700;
@@ -249,7 +255,6 @@ button {
 .nav__menu__a:hover {
   color: #2b2b2b;
 }
-
 
 .nav__menu {
   display: none;
@@ -265,7 +270,7 @@ button {
   border-radius: 0;
 }
 
-#hamburger:checked~.nav__menu {
+#hamburger:checked ~ .nav__menu {
   display: block;
   background: white;
   width: 75vw;
@@ -296,7 +301,7 @@ button {
 .header__info__p {
   margin-top: 0;
   margin-bottom: 51px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: 400;
 }
 
@@ -357,7 +362,7 @@ button {
   transform: translateY(-50%);
 }
 
-.section__info__div__icon__circle--bg-primary~img {
+.section__info__div__icon__circle--bg-primary ~ img {
   left: 30%;
 }
 
@@ -367,7 +372,7 @@ button {
 }
 
 .reasons-sales {
-  background-color: #F7F7F7;
+  background-color: #f7f7f7;
   height: max-content;
   padding: 6.5rem 2rem;
 }
@@ -519,7 +524,8 @@ button {
   padding: 0.125rem 0.75em;
 }
 
-.pricing__currency__select__option {}
+.pricing__currency__select__option {
+}
 
 .pricing__container {
   margin: 1rem auto;
@@ -582,7 +588,7 @@ button {
 
 .pricing mark {
   background: none;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 46px;
   font-weight: 300;
 }
@@ -605,7 +611,7 @@ button {
 }
 
 .price__list {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   list-style-image: url(../assets/img/icons/Checkbox.svg);
   margin: 0;
   padding-left: 25px;
@@ -662,13 +668,13 @@ button {
 
 .contact__info__p {
   margin: 0;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: 600;
   font-size: 1rem;
   color: var(--grey);
 }
 
-.contact__info__p>img {
+.contact__info__p > img {
   margin-right: 0.75rem;
   max-width: 22px;
 }
@@ -684,7 +690,7 @@ button {
   border-color: var(--secundary) !important;
 }
 
-.form>.form__btn {
+.form > .form__btn {
   position: relative;
   margin-left: auto;
   margin-right: 0;
@@ -754,8 +760,8 @@ button {
   gap: 10px;
 }
 
-.form__label--checkbox>.form__label__p,
-.info__newsletter__label--checkbox>.info__newsletter__label__p {
+.form__label--checkbox > .form__label__p,
+.info__newsletter__label--checkbox > .info__newsletter__label__p {
   width: calc(100% - 31px);
   margin: 0;
   color: var(--grey);
@@ -784,7 +790,7 @@ button {
   display: flex;
   flex-direction: column;
   font-size: 11px;
-  color: var(--shadow-grey)
+  color: var(--shadow-grey);
 }
 
 .footer__social_media {
@@ -843,7 +849,7 @@ button {
   }
 
   /* Esto es para evitar que se quede montado abajo si se ha quedado activado el menu cuando */
-  #hamburger:checked~.nav__menu {
+  #hamburger:checked ~ .nav__menu {
     width: initial;
   }
 
@@ -883,7 +889,7 @@ button {
     flex-direction: row;
   }
 
-  .pricing__container>div {
+  .pricing__container > div {
     max-width: 372px;
     flex-direction: column;
   }
@@ -911,7 +917,7 @@ button {
     max-width: 330px;
     height: 4px;
     border: 0;
-    background-color: #08A6E4;
+    background-color: #08a6e4;
   }
 
   .benefits__container__div .hr--secundary {
@@ -936,9 +942,9 @@ button {
     border-radius: 5px;
   }
 
-  .benefits__container__div--separate .benefits__container__div>h3,
-  .benefits__container__div--separate .benefits__container__div>p,
-  .benefits__container__div--separate .benefits__container__div>hr {
+  .benefits__container__div--separate .benefits__container__div > h3,
+  .benefits__container__div--separate .benefits__container__div > p,
+  .benefits__container__div--separate .benefits__container__div > hr {
     width: 85%;
   }
 
@@ -970,12 +976,12 @@ button {
     border-radius: 5px;
   }
 
-  .price__list {}
+  .price__list {
+  }
 
   .contact__info {
     grid-template-columns: 1fr 1fr;
   }
-
 }
 
 @media only screen and (min-width: 1024px) {
