@@ -13,8 +13,10 @@
   <body>
     <nav class="nav">
       <div class="nav__container">
-        <p class="logo">OXYGENShop</p>
-        <input type="checkbox" id="hamburger" />
+        <div class="nav__title-check">
+          <p class="logo">OXYGENShop</p>
+          <input type="checkbox" id="hamburger" />
+        </div>
         <div class="nav__menu">
           <ul class="nav__menu__ul">
             <li><a class="nav__menu__a" href="#why-us">Why us</a></li>
@@ -25,7 +27,7 @@
         </div>
       </div>
     </nav>
-    <div class="percentage-scroller">0</div>
+    <div class="percentage-scroller"></div>
     <header class="header">
       <div class="header__info">
         <h1 class="header__info_h1">Sell More!</h1>
@@ -47,6 +49,15 @@
             d="M11 20V7.75L5.75 13 5 12.34l6.5-6.5 6.5 6.5-.75.66L12 7.75V20h-1Z"
           />
         </svg>
+      </div>
+      <div class="modal">
+        <div class="modal-content">
+          <span class="close-modal">&times;</span>
+          <h2>Subscribe to our newsletter or if you have any questions</h2>
+          <button class="newsletter__btn btn-primary">
+            <a href="#subscribe" class="subscribe-modal">Subscribe</a>
+          </button>
+        </div>
       </div>
       <section id="why-us" class="section__info">
         <h2>The most popular sales platform in country</h2>
@@ -229,6 +240,7 @@
         <div class="contact">
           <div>
             <h5 class="contact__h5">Any Questions?</h5>
+            <p class="contact__p">Subscribe to get more information!</p>
             <p class="contact__p">Leave your email address or call us!</p>
           </div>
           <div class="contact__info">
@@ -244,28 +256,30 @@
             </p>
           </div>
         </div>
-        <form class="form">
+        <form class="form" id="subscribe">
           <label class="form__label">
             Name
             <input
-              class="form__input"
+              class="form__input name"
               type="text"
               name="name-person"
-              minlength="2"
-              maxlength="100"
               required
             />
           </label>
           <label class="form__label">
             Email
-            <input class="form__input" type="email" name="email" required />
+            <input
+              class="form__input email"
+              type="email"
+              name="email"
+              required
+            />
           </label>
           <label class="form__label form__label--checkbox" id="data-protection">
             <input
               class="form__checkbox"
               type="checkbox"
               name="data-protection"
-              required
             />
             <p class="form__label__p">
               I hereby give consent for my personal data included in my
