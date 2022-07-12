@@ -168,3 +168,44 @@ const postForm = () => {
 };
 
 validationForm.addEventListener("click", postForm);
+
+// currency exchange
+
+const apiExchange = `https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/usd.json`;
+
+const getDataExchange = async () => {
+  const response = await fetch(apiExchange);
+  let data = await response.json();
+  return data;
+};
+
+const select = document.querySelector(".pricing__currency__select ");
+const professional = document.querySelector(".professionalItem");
+const premium = document.querySelector(".premiumItem");
+const basic = document.querySelector(".basicItem");
+
+getDataExchange().then((data) => {
+  select.addEventListener("change", (e) => {
+    switch (e.target.value) {
+      case "usd":
+        basic.textContent = "$0";
+        professional.textContent = "$25";
+        premium.textContent = "$60";
+        break;
+      case "eur":
+        basic.textContent = "€0";
+        professional.textContent =
+          "€" + parseFloat(25 * data.usd.eur).toFixed(2);
+        premium.textContent = "€" + parseFloat(60 * data.usd.eur).toFixed(2);
+        break;
+      case "gbp":
+        basic.textContent = "£0";
+        professional.textContent =
+          "£" + parseFloat(25 * data.usd.gbp).toFixed(2);
+        premium.textContent = "£" + parseFloat(60 * data.usd.gbp).toFixed(2);
+        break;
+    }
+  });
+});
+
+//SLIDER

@@ -218,11 +218,9 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: flex-start;
 }
 .nav__title-check {
   display: flex;
-  width: 90%;
   justify-content: space-between;
   align-items: center;
 }
@@ -261,6 +259,7 @@ button {
 }
 
 #hamburger {
+  padding-right: 20px;
   cursor: pointer;
   appearance: none;
   width: 20px;
@@ -531,8 +530,8 @@ button {
   padding: 0.125rem 0.75em;
 }
 
-.pricing__currency__select__option {
-}
+/* .pricing__currency__select__option {
+} */
 
 .pricing__container {
   margin: 1rem auto;
@@ -1070,7 +1069,6 @@ button {
     display: flex;
     flex-direction: row;
     align-items: center;
-
     justify-content: space-around;
   }
 
