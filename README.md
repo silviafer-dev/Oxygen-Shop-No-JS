@@ -1,5 +1,7 @@
 ## OXYGEN Shop Project
 
-Adding js and DOM
+Página web realizada con html, css and javascript.
+
+Ejercicio sobre el uso del DOM.
 
 ### Silvia Ferrai
