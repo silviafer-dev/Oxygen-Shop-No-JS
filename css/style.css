@@ -257,6 +257,9 @@ button {
 .nav__menu {
   display: none;
 }
+.nav__menu--visible {
+  display: block;
+}
 
 #hamburger {
   padding-right: 20px;
@@ -275,12 +278,6 @@ button {
   background: aquamarine;
   cursor: pointer;
 }
-/* 
-#hamburger:checked ~ .nav__menu {
-  display: block;
-  background: white;
-  width: 75vw;
-} */
 
 #hamburger:checked {
   width: 14px;
@@ -495,7 +492,35 @@ button {
 }
 
 .slide__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  margin: -7px;
+  left: 20px;
+  top: 50%;
   padding: 0;
+  width: 32px;
+  height: 32px;
+  background: var(--grey);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 200ms;
+  z-index: 1;
+}
+.slide__btn--right {
+  left: auto;
+  right: 20px;
+}
+
+.slide__btn:hover,
+.slide__btn--active {
+  background: var(--primary);
+}
+
+.dot {
+  padding: 0;
+  margin: 5px;
   width: 12px;
   height: 12px;
   background: var(--grey);
@@ -504,10 +529,17 @@ button {
   transition: 200ms;
   z-index: 1;
 }
+.dot:hover,
+.dot--active {
+  background: var(--white);
+  border: 1px solid var(--grey);
+}
 
-.slide__btn:hover,
-.slide__btn--active {
-  background: var(--primary);
+.dotsContainer {
+  display: block;
+  position: absolute;
+  bottom: 75px;
+  right: 45%;
 }
 
 .pricing {
@@ -911,7 +943,7 @@ button {
   }
 
   .nav__menu {
-    display: block;
+    display: none;
   }
 
   .nav__menu__a:hover::after {
@@ -1052,11 +1084,35 @@ button {
     border-radius: 5px;
   }
 
-  .price__list {
-  }
-
   .contact__info {
     grid-template-columns: 1fr 1fr;
+  }
+  .dotsContainer {
+    display: block;
+    position: absolute;
+    bottom: 30px;
+    right: 45%;
+  }
+  .slide__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    margin: -7px;
+    left: 60px;
+    top: 50%;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    background: var(--grey);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 200ms;
+    z-index: 1;
+  }
+  .slide__btn--right {
+    left: auto;
+    right: 60px;
   }
 }
 

@@ -29,11 +29,7 @@ const hamburgerMenu = document
   .querySelector("#hamburger")
   .addEventListener("click", () => {
     const navMenu = document.querySelector(".nav__menu");
-    if (navMenu.style.display === "block") {
-      navMenu.style.display = "none";
-    } else {
-      navMenu.style.display = "block";
-    }
+    navMenu.classList.toggle("nav__menu--visible");
   });
 
 //MODAL
@@ -209,3 +205,73 @@ getDataExchange().then((data) => {
 });
 
 //SLIDER
+
+class SuperSlider {
+  constructor(id) {
+    this.container = document.getElementById(id);
+    this.images = this.container.getElementsByClassName("slide__img");
+    this.activeImg = this.images[0];
+    this.activeIndex = 0;
+    this.arrow = document.createElement("button");
+    this.arrowRight = document.createElement("button");
+    this.arrow.classList.add("slide__btn");
+    this.arrowRight.classList.add("slide__btn--right", "slide__btn");
+    this.arrow.textContent = "❮";
+    this.arrowRight.textContent = "❯";
+    this.dotsContainer = document.createElement("div");
+    this.dotsContainer.classList.add("dotsContainer");
+
+    this.container.appendChild(this.arrow);
+    this.container.appendChild(this.arrowRight);
+    this.container.appendChild(this.dotsContainer);
+    this.dots();
+    this.dots[0].classList.add("dot--active");
+    this.activeDot = this.dots[0];
+
+    setInterval(() => {
+      this.nextImg();
+    }, 2000);
+    this.arrow.addEventListener("click", () => {
+      this.prevImg();
+    });
+    this.arrowRight.addEventListener("click", () => {
+      this.nextImg();
+    });
+  }
+
+  dots() {
+    this.dots = [];
+    for (let i = 0; i < this.images.length; i++) {
+      const dot = document.createElement("button");
+      dot.classList.add("dot");
+      this.dotsContainer.appendChild(dot);
+      this.dots.push(dot);
+    }
+  }
+  nextImg() {
+    if (this.activeIndex >= this.images.length - 1) {
+      this.showImg(0);
+    } else {
+      this.showImg(this.activeIndex + 1);
+    }
+  }
+
+  prevImg() {
+    if (this.activeIndex === 0) {
+      this.showImg(this.images.length - 1);
+    } else {
+      this.showImg(this.activeIndex - 1);
+    }
+  }
+  showImg(index) {
+    this.activeImg.classList.remove("slide__img--active");
+    this.images[index].classList.add("slide__img--active");
+    this.activeDot.classList.remove("dot--active");
+    this.dots[index].classList.add("dot--active");
+    this.activeDot = this.dots[index];
+    this.activeImg = this.images[index];
+    this.activeIndex = index;
+  }
+}
+
+const slider = new SuperSlider("slider");
