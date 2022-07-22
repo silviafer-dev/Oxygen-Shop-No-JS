@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Raleway:wght@300;400;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Raleway:wght@300;400;700;800&display=swap");
 
 /*Reset*/
 input,
@@ -17,7 +17,7 @@ textarea {
 
   /* Browsers have different default form fonts */
   font-size: 1rem;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 /* Remove the stupid outer glow in Webkit */
@@ -37,17 +37,16 @@ textarea {
 }
 
 :root {
-  --primary: #08A6E4;
-  --secundary: #FB3B64;
-  --special: #55DFB4;
+  --primary: #08a6e4;
+  --secundary: #fb3b64;
+  --special: #55dfb4;
   --shadow-primary: #08a8e34a;
   --shadow-secundary: #fb3c654a;
   --shadow-special: #54deb24a;
   --shadow-grey: #0000004a;
-  --white: #FFFFFF;
+  --white: #ffffff;
   --grey: #95989a;
-  --border-grey: #E8E9ED;
-
+  --border-grey: #e8e9ed;
 }
 
 /* IMPROVE Revisar los gap hay algunos en px y otros en rem */
@@ -55,7 +54,7 @@ body {
   box-sizing: border-box;
   margin: 0;
   /*TODO  Poner las fuentes en local y cambiarlo de aqui, esto es temporal para dar estilo general*/
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
 }
 
 .overflow-hidden {
@@ -164,7 +163,7 @@ button {
 
 .info__newsletter_p {
   color: var(--grey);
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 .info__newsletter__label {
@@ -215,16 +214,21 @@ button {
 }
 
 .nav__container {
+  margin-left: 30px;
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
+}
+.nav__title-check {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
 }
 
 .logo {
   margin: 0;
   color: var(--primary);
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 300;
   font-size: 26px;
 }
@@ -236,7 +240,7 @@ button {
 
 .nav__menu__a {
   position: relative;
-  color: #A5A5A5;
+  color: #a5a5a5;
   letter-spacing: 3.28px;
   font-size: 11px;
   font-weight: 700;
@@ -250,12 +254,15 @@ button {
   color: #2b2b2b;
 }
 
-
 .nav__menu {
   display: none;
 }
+.nav__menu--visible {
+  display: block;
+}
 
 #hamburger {
+  padding-right: 20px;
   cursor: pointer;
   appearance: none;
   width: 20px;
@@ -264,11 +271,12 @@ button {
   border: 0px;
   border-radius: 0;
 }
-
-#hamburger:checked~.nav__menu {
-  display: block;
-  background: white;
-  width: 75vw;
+.button-close {
+  width: 20px;
+  height: 20px;
+  padding: 9px;
+  background: aquamarine;
+  cursor: pointer;
 }
 
 #hamburger:checked {
@@ -296,7 +304,7 @@ button {
 .header__info__p {
   margin-top: 0;
   margin-bottom: 51px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: 400;
 }
 
@@ -357,7 +365,7 @@ button {
   transform: translateY(-50%);
 }
 
-.section__info__div__icon__circle--bg-primary~img {
+.section__info__div__icon__circle--bg-primary ~ img {
   left: 30%;
 }
 
@@ -367,7 +375,7 @@ button {
 }
 
 .reasons-sales {
-  background-color: #F7F7F7;
+  background-color: #f7f7f7;
   height: max-content;
   padding: 6.5rem 2rem;
 }
@@ -484,7 +492,35 @@ button {
 }
 
 .slide__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  margin: -7px;
+  left: 20px;
+  top: 50%;
   padding: 0;
+  width: 32px;
+  height: 32px;
+  background: var(--grey);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 200ms;
+  z-index: 1;
+}
+.slide__btn--right {
+  left: auto;
+  right: 20px;
+}
+
+.slide__btn:hover,
+.slide__btn--active {
+  background: var(--primary);
+}
+
+.dot {
+  padding: 0;
+  margin: 5px;
   width: 12px;
   height: 12px;
   background: var(--grey);
@@ -493,10 +529,17 @@ button {
   transition: 200ms;
   z-index: 1;
 }
+.dot:hover,
+.dot--active {
+  background: var(--white);
+  border: 1px solid var(--grey);
+}
 
-.slide__btn:hover,
-.slide__btn--active {
-  background: var(--primary);
+.dotsContainer {
+  display: block;
+  position: absolute;
+  bottom: 75px;
+  right: 45%;
 }
 
 .pricing {
@@ -519,7 +562,8 @@ button {
   padding: 0.125rem 0.75em;
 }
 
-.pricing__currency__select__option {}
+/* .pricing__currency__select__option {
+} */
 
 .pricing__container {
   margin: 1rem auto;
@@ -582,7 +626,7 @@ button {
 
 .pricing mark {
   background: none;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 46px;
   font-weight: 300;
 }
@@ -605,7 +649,7 @@ button {
 }
 
 .price__list {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   list-style-image: url(../assets/img/icons/Checkbox.svg);
   margin: 0;
   padding-left: 25px;
@@ -662,13 +706,13 @@ button {
 
 .contact__info__p {
   margin: 0;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: 600;
   font-size: 1rem;
   color: var(--grey);
 }
 
-.contact__info__p>img {
+.contact__info__p > img {
   margin-right: 0.75rem;
   max-width: 22px;
 }
@@ -684,7 +728,7 @@ button {
   border-color: var(--secundary) !important;
 }
 
-.form>.form__btn {
+.form > .form__btn {
   position: relative;
   margin-left: auto;
   margin-right: 0;
@@ -754,8 +798,8 @@ button {
   gap: 10px;
 }
 
-.form__label--checkbox>.form__label__p,
-.info__newsletter__label--checkbox>.info__newsletter__label__p {
+.form__label--checkbox > .form__label__p,
+.info__newsletter__label--checkbox > .info__newsletter__label__p {
   width: calc(100% - 31px);
   margin: 0;
   color: var(--grey);
@@ -784,7 +828,7 @@ button {
   display: flex;
   flex-direction: column;
   font-size: 11px;
-  color: var(--shadow-grey)
+  color: var(--shadow-grey);
 }
 
 .footer__social_media {
@@ -795,6 +839,76 @@ button {
 
 .benefits__container__div hr {
   display: none;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.subscribe-modal {
+  color: white;
+  text-decoration: none;
+}
+.modal-content {
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+}
+.close-modal {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  font-size: 40px;
+  align-self: flex-end;
+  background-color: #08a6e4;
+  color: white;
+  padding-bottom: 0 7px 7px;
+  border-radius: 2px;
+}
+@-webkit-keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
 }
 
 @media only screen and (orientation: landscape) {
@@ -829,7 +943,7 @@ button {
   }
 
   .nav__menu {
-    display: block;
+    display: none;
   }
 
   .nav__menu__a:hover::after {
@@ -843,7 +957,7 @@ button {
   }
 
   /* Esto es para evitar que se quede montado abajo si se ha quedado activado el menu cuando */
-  #hamburger:checked~.nav__menu {
+  #hamburger:checked ~ .nav__menu {
     width: initial;
   }
 
@@ -883,7 +997,7 @@ button {
     flex-direction: row;
   }
 
-  .pricing__container>div {
+  .pricing__container > div {
     max-width: 372px;
     flex-direction: column;
   }
@@ -911,7 +1025,7 @@ button {
     max-width: 330px;
     height: 4px;
     border: 0;
-    background-color: #08A6E4;
+    background-color: #08a6e4;
   }
 
   .benefits__container__div .hr--secundary {
@@ -936,9 +1050,9 @@ button {
     border-radius: 5px;
   }
 
-  .benefits__container__div--separate .benefits__container__div>h3,
-  .benefits__container__div--separate .benefits__container__div>p,
-  .benefits__container__div--separate .benefits__container__div>hr {
+  .benefits__container__div--separate .benefits__container__div > h3,
+  .benefits__container__div--separate .benefits__container__div > p,
+  .benefits__container__div--separate .benefits__container__div > hr {
     width: 85%;
   }
 
@@ -970,12 +1084,36 @@ button {
     border-radius: 5px;
   }
 
-  .price__list {}
-
   .contact__info {
     grid-template-columns: 1fr 1fr;
   }
-
+  .dotsContainer {
+    display: block;
+    position: absolute;
+    bottom: 30px;
+    right: 45%;
+  }
+  .slide__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    margin: -7px;
+    left: 60px;
+    top: 50%;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    background: var(--grey);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 200ms;
+    z-index: 1;
+  }
+  .slide__btn--right {
+    left: auto;
+    right: 60px;
+  }
 }
 
 @media only screen and (min-width: 1024px) {
@@ -984,9 +1122,10 @@ button {
   }
 
   .nav__container {
-    width: 90%;
-    margin: 0 auto;
-    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
   }
 
   .nav__menu {
