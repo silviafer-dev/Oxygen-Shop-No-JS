@@ -934,7 +934,7 @@ button {
 @media only screen and (min-width: 767px) {
   .header {
     height: 550px;
-    background-image: url(/assets/img/background.png);
+    background-image: url(./assets/img/background.png);
     background-size: contain;
   }
 
