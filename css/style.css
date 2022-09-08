@@ -519,7 +519,7 @@ button {
   padding: 0.125rem 0.75em;
 }
 
-.pricing__currency__select__option {}
+
 
 .pricing__container {
   margin: 1rem auto;
@@ -820,7 +820,7 @@ button {
 @media only screen and (min-width: 767px) {
   .header {
     height: 550px;
-    background-image: url(/assets/img/background.png);
+    background-image: url(../assets/img/background.png);
     background-size: contain;
   }
 
@@ -970,7 +970,7 @@ button {
     border-radius: 5px;
   }
 
-  .price__list {}
+
 
   .contact__info {
     grid-template-columns: 1fr 1fr;
