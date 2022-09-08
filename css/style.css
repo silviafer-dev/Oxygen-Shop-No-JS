@@ -562,8 +562,7 @@ button {
   padding: 0.125rem 0.75em;
 }
 
-/* .pricing__currency__select__option {
-} */
+
 
 .pricing__container {
   margin: 1rem auto;
@@ -1083,6 +1082,7 @@ button {
     width: 40%;
     border-radius: 5px;
   }
+
 
   .contact__info {
     grid-template-columns: 1fr 1fr;
