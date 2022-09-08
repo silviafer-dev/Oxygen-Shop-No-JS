@@ -25,9 +25,7 @@ document.addEventListener("scroll", () => {
 });
 
 //hamburger menu
-const hamburgerMenu = document
-  .querySelector("#hamburger")
-  .addEventListener("click", () => {
+const hamburgerMenu = document.querySelector("#hamburger").addEventListener("click", () => {
     const navMenu = document.querySelector(".nav__menu");
     navMenu.classList.toggle("nav__menu--visible");
   });
