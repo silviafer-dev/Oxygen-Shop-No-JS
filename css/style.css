@@ -559,10 +559,11 @@ button {
 }
 
 .pricing__currency__select {
-  padding: 0.125rem 0.75em;
+  width: 21%;
+  background: #e6f9e9;
+  border-radius: 10px;
+  padding: 10px 20px;
 }
-
-
 
 .pricing__container {
   margin: 1rem auto;
@@ -699,7 +700,6 @@ button {
 .contact__info {
   margin-top: 2.25rem;
   display: grid;
-  /* grid-template-columns: 1fr 1fr; */
   gap: 1rem;
 }
 
@@ -733,6 +733,23 @@ button {
   margin-right: 0;
   width: 60%;
   max-width: 225px;
+}
+.form > .error-text,
+.error-text-check {
+  background-color: #f8d7da;
+  padding: 8px 5px;
+  border-radius: 5px;
+  color: #8b3e46;
+  border: 1px solid #f5c6cb;
+  display: none;
+}
+.form > .confirm-text {
+  background-color: #beeac5;
+  padding: 10px 5px;
+  border-radius: 5px;
+  color: #276809;
+  border: 1px solid #acf1b7;
+  display: none;
 }
 
 .form__label,
@@ -1082,7 +1099,6 @@ button {
     width: 40%;
     border-radius: 5px;
   }
-
 
   .contact__info {
     grid-template-columns: 1fr 1fr;

@@ -127,40 +127,52 @@ const emailValidate = () => {
 validationForm.addEventListener("click", emailValidate);
 
 // check-box;
-const checked = () => {
-  const checkBox = document.querySelector(".form__checkbox").checked === true;
-  if (checkBox) {
-    console.log("checked");
-    return true;
-  } else {
-    console.log("object");
-    return false;
-  }
-};
-validationForm.addEventListener("click", checked);
+const checkBox = document.querySelector(".form__checkbox");
 
 //FORM FETCH
-
 const url = "https://jsonplaceholder.typicode.com/posts";
 const inputName = document.querySelector(".name");
 const inputEmail = document.querySelector(".email");
 
-const postForm = () => {
+const postForm = (e) => {
   const dataName = inputName.value;
   const dataEmail = inputEmail.value;
+  const errorMessage = document.querySelector(".error-text");
+  const errorMessageCheck = document.querySelector(".error-text-check");
+  const confirmMessage = document.querySelector(".confirm-text");
+  e.preventDefault();
+  if (!dataName || !dataEmail) {
+    errorMessage.style.display = "block";
+    errorMessageCheck.style.display = "none";
+    confirmMessage.style.display = "none";
 
-  fetch(url, {
-    method: "POST",
-    body: JSON.stringify({
-      name: dataName,
-      email: dataEmail,
-    }),
-    headers: {
-      "Content-type": "application/json; charset=UTF-8",
-    },
-  }).then((response) =>
-    response.json({ message: "Email-address sent successfully" })
-  );
+    return false;
+  } else if (checkBox.checked == false) {
+    errorMessage.style.display = "none";
+    confirmMessage.style.display = "none";
+    errorMessageCheck.style.display = "block";
+    return false;
+  } else {
+    fetch(url, {
+      method: "POST",
+      body: JSON.stringify({
+        name: dataName,
+        email: dataEmail,
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    }).then((response) =>
+      response.json({ message: "Email-address sent successfully" })
+    );
+    errorMessage.style.display = "none";
+    errorMessageCheck.style.display = "none";
+    confirmMessage.style.display = "block";
+
+    inputName.value = "";
+    inputEmail.value = "";
+    checkBox.checked = false;
+  }
 };
 
 validationForm.addEventListener("click", postForm);
