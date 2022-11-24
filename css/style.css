@@ -1100,9 +1100,7 @@ button {
     border-radius: 5px;
   }
 
-  .contact__info {
-    grid-template-columns: 1fr 1fr;
-  }
+ 
   .dotsContainer {
     display: block;
     position: absolute;
