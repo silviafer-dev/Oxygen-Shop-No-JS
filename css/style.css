@@ -735,7 +735,8 @@ button {
   max-width: 225px;
 }
 .form > .error-text,
-.error-text-check {
+.error-text-check,
+.error-email {
   background-color: #f8d7da;
   padding: 8px 5px;
   border-radius: 5px;
@@ -1100,7 +1101,6 @@ button {
     border-radius: 5px;
   }
 
- 
   .dotsContainer {
     display: block;
     position: absolute;

@@ -25,7 +25,9 @@ document.addEventListener("scroll", () => {
 });
 
 //hamburger menu
-const hamburgerMenu = document.querySelector("#hamburger").addEventListener("click", () => {
+const hamburgerMenu = document
+  .querySelector("#hamburger")
+  .addEventListener("click", () => {
     const navMenu = document.querySelector(".nav__menu");
     navMenu.classList.toggle("nav__menu--visible");
   });
@@ -105,11 +107,19 @@ validationInput.addEventListener("keypress", nameLength);
 // regex validation email
 const emailValidate = () => {
   const emailValue = document.querySelector(".email").value;
+  const errorEmail = document.querySelector(".error-email");
 
   const regex =
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   if (emailValue.match(regex)) {
+    errorEmail.style.display = "none";
+    document
+      .querySelector(".email")
+      .setAttribute(
+        "style",
+        "border: none; border-bottom: 1px solid var(--grey); padding: 7px ; border-radius: none"
+      );
     return true;
   } else {
     document
@@ -118,7 +128,7 @@ const emailValidate = () => {
         "style",
         "border:1px solid red ; padding: 7px ; border-radius: 10px"
       );
-
+    errorEmail.style.display = "block";
     return false;
   }
 };
@@ -133,12 +143,16 @@ const inputName = document.querySelector(".name");
 const inputEmail = document.querySelector(".email");
 
 const postForm = (e) => {
+  const regex =
+    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   const dataName = inputName.value;
   const dataEmail = inputEmail.value;
   const errorMessage = document.querySelector(".error-text");
   const errorMessageCheck = document.querySelector(".error-text-check");
   const confirmMessage = document.querySelector(".confirm-text");
+  const errorEmail = document.querySelector(".error-email");
   e.preventDefault();
+
   if (!dataName || !dataEmail) {
     errorMessage.style.display = "block";
     errorMessageCheck.style.display = "none";
@@ -150,6 +164,8 @@ const postForm = (e) => {
     confirmMessage.style.display = "none";
     errorMessageCheck.style.display = "block";
     return false;
+  } else if (!dataEmail.match(regex)) {
+    errorEmail.style.display = "block";
   } else {
     fetch(url, {
       method: "POST",
@@ -165,11 +181,13 @@ const postForm = (e) => {
     );
     errorMessage.style.display = "none";
     errorMessageCheck.style.display = "none";
+    errorEmail.style.display = "none";
     confirmMessage.style.display = "block";
+    setTimeout(() => {
+      confirmMessage.style.display = "none";
+    }, 5000);
 
-    inputName.value = "";
-    inputEmail.value = "";
-    checkBox.checked = false;
+    document.getElementById("subscribe").reset();
   }
 };
 
