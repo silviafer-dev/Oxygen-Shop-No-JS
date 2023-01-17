@@ -166,6 +166,9 @@ const postForm = (e) => {
     return false;
   } else if (!dataEmail.match(regex)) {
     errorEmail.style.display = "block";
+     errorMessageCheck.style.display = "none";
+    errorMessage.style.display = "none";
+    confirmMessage.style.display = "none";
   } else {
     fetch(url, {
       method: "POST",

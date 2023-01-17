@@ -734,7 +734,13 @@ button {
   width: 60%;
   max-width: 225px;
 }
-.form > .error-text,
+.message-container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.message-container > .error-text,
 .error-text-check,
 .error-email {
   background-color: #f8d7da;
@@ -743,14 +749,16 @@ button {
   color: #8b3e46;
   border: 1px solid #f5c6cb;
   display: none;
+  width: fit-content;
 }
-.form > .confirm-text {
+.message-container > .confirm-text {
   background-color: #beeac5;
   padding: 10px 5px;
   border-radius: 5px;
   color: #276809;
   border: 1px solid #acf1b7;
   display: none;
+  width: fit-content;
 }
 
 .form__label,
