@@ -559,7 +559,7 @@ button {
 }
 
 .pricing__currency__select {
-  width: 21%;
+  width: 40%;
   background: #e6f9e9;
   border-radius: 10px;
   padding: 10px 20px;
@@ -893,7 +893,7 @@ button {
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 60%;
+  width: 80%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   -webkit-animation-name: animatetop;
   -webkit-animation-duration: 0.4s;
@@ -923,7 +923,7 @@ button {
   border: 1px solid rgb(169, 161, 161);
   border-radius: 10px;
   padding: 10px;
-  width: 300px;
+  width: fit-content;
 }
 .modal-title {
   font-size: 30px;
@@ -932,7 +932,7 @@ button {
   font-size: 20px;
   text-align: justify;
   text-align-last: center;
-  padding: 0 30px;
+  padding: 0 10px;
 }
 @-webkit-keyframes animatetop {
   from {
@@ -977,6 +977,18 @@ button {
 }
 
 @media only screen and (min-width: 767px) {
+  .modal-content {
+    width: 60%;
+  }
+  .email-modal {
+    width: 300px;
+  }
+  .modal-subtitle {
+    padding: 0 30px;
+  }
+  .pricing__currency__select {
+    width: 21%;
+  }
   .header {
     height: 550px;
     background-image: url(../assets/img/background.png);
@@ -986,9 +998,16 @@ button {
   #hamburger {
     display: none;
   }
+  .nav__container {
+   
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+  }
 
-  .nav__menu {
-    display: none;
+ .nav__menu {
+    display: flex;
   }
 
   .nav__menu__a:hover::after {
@@ -1161,13 +1180,6 @@ button {
 @media only screen and (min-width: 1024px) {
   .header {
     height: calc(100vh - 25px);
-  }
-
-  .nav__container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
   }
 
   .nav__menu {
