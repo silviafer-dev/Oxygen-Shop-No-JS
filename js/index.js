@@ -39,9 +39,9 @@ const regex =
 const modal = document.querySelector(".modal");
 
 setTimeout(() => {
-  if (localStorage.getItem("modalShown") !== "1") {
+  if (sessionStorage.getItem("modalShown") !== "1") {
     modal.style.display = "block";
-    localStorage.setItem("modalShown", "1");
+    sessionStorage.setItem("modalShown", "1");
   }
 }, 5000);
 
@@ -54,9 +54,9 @@ const showModal = () => {
 document.addEventListener("evt", showModal);
 
 document.addEventListener("scroll", () => {
-  if (localStorage.getItem("modalShown") !== "1" && scrollPercent >= 25) {
+  if (sessionStorage.getItem("modalShown") !== "1" && scrollPercent >= 25) {
     modal.style.display = "block";
-    localStorage.setItem("modalShown", "1");
+    sessionStorage.setItem("modalShown", "1");
   }
 });
 
@@ -88,7 +88,6 @@ subscribe.addEventListener("click", (e) => {
         response.json({ message: "Email-address sent successfully" })
       )
       .then((data) => console.log(data));
-      
     const messageOk = document.createElement("p");
     messageOk.textContent = "Email sent with success!";
     messageOk.setAttribute(
