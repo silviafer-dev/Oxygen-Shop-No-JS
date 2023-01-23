@@ -5,7 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/style.css" />
-    <link rel="shortcut icon" href="./assets/img/OxShop.png" type="image/x-icon" />
+    <link
+      rel="shortcut icon"
+      href="./assets/img/OxShop.png"
+      type="image/x-icon"
+    />
     <script type="module" src="./js/index.js"></script>
     <title>Oxygen Shop</title>
   </head>
@@ -54,9 +58,24 @@
         <div class="modal-content">
           <span class="close-modal">&times;</span>
           <h2>Subscribe to our newsletter!</h2>
-          <button class="newsletter__btn btn-primary">
-            <a href="#subscribe" class="subscribe-modal">Subscribe</a>
-          </button>
+          <p>
+            Sign up for our weekly update and be the first to know about promotions ad discounts!
+          </p>
+          <form>
+           <label class="">
+            
+            <input
+              class="email-modal"
+              type="email"
+              name="email-modal"
+              placeholder="Enter your email"
+              required
+            />
+          </label>
+            <button class="newsletter__btn btn-primary">
+              <a href="#subscribe" class="subscribe-modal">Subscribe</a>
+            </button>
+          </form>
         </div>
       </div>
       <section id="why-us" class="section__info">
@@ -288,7 +307,7 @@
               95/46/EC (Data Protection Directive)
             </p>
           </label>
-        
+
           <button id="submit-btn" class="form__btn btn-primary">Send</button>
         </form>
         <div class="message-container">
@@ -305,7 +324,7 @@
             Email sent successfully, we will get in touch with you as soon as
             possible.
           </p>
-          </div>
+        </div>
       </section>
     </main>
     <footer class="footer">
