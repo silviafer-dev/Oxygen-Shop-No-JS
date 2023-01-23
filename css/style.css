@@ -866,7 +866,7 @@ button {
   display: none;
 }
 .modal {
-  display: block;
+  display: none;
   position: fixed;
   z-index: 2;
   padding-top: 100px;

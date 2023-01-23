@@ -33,6 +33,9 @@ const hamburgerMenu = document
   });
 
 //MODAL
+const regex =
+  /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
 const modal = document.querySelector(".modal");
 
 setTimeout(() => {
@@ -57,15 +60,59 @@ document.addEventListener("scroll", () => {
   }
 });
 
-// close modal
+// modal and fetch
+const url = "https://jsonplaceholder.typicode.com/posts";
+
 const closeModal = document.querySelector(".close-modal");
 const subscribe = document.querySelector(".subscribe-modal");
+const emailModal = document.querySelector(".email-modal");
+const modalContent = document.querySelector(".modal-content");
 
 closeModal.addEventListener("click", () => {
   modal.style.display = "none";
 });
-subscribe.addEventListener("click", () => {
-  modal.style.display = "none";
+subscribe.addEventListener("click", (e) => {
+  const valueInput = emailModal.value;
+  e.preventDefault();
+  if (valueInput.match(regex)) {
+    fetch(url, {
+      method: "POST",
+      body: JSON.stringify({
+        email: valueInput,
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((response) =>
+        response.json({ message: "Email-address sent successfully" })
+      )
+      .then((data) => console.log(data));
+      
+    const messageOk = document.createElement("p");
+    messageOk.textContent = "Email sent with success!";
+    messageOk.setAttribute(
+      "style",
+      "background-color: #beeac5 ; padding: 10px 5px ;border-radius: 5px; color: #276809;  border: 1px solid #acf1b7;  width: fit-content;"
+    );
+
+    modalContent.appendChild(messageOk);
+    setTimeout(() => {
+      modal.style.display = "none";
+      messageOk.style.display = "none";
+    }, 3000);
+  } else {
+    const messageError = document.createElement("p");
+    messageError.textContent = "Please, insert a valid email!";
+    messageError.setAttribute(
+      "style",
+      "background-color: #f8d7da ; padding: 10px 5px ;border-radius: 5px; color: #8b3e46;  border: 1px solid #f5c6cb;  width: fit-content;"
+    );
+    modalContent.appendChild(messageError);
+    setTimeout(() => {
+      messageError.style.display = "none";
+    }, 4000);
+  }
 });
 
 modal.addEventListener("click", (e) => {
@@ -105,12 +152,10 @@ const nameLength = () => {
 validationInput.addEventListener("keypress", nameLength);
 
 // regex validation email
+
 const emailValidate = () => {
   const emailValue = document.querySelector(".email").value;
   const errorEmail = document.querySelector(".error-email");
-
-  const regex =
-    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   if (emailValue.match(regex)) {
     errorEmail.style.display = "none";
@@ -138,13 +183,11 @@ validationForm.addEventListener("click", emailValidate);
 const checkBox = document.querySelector(".form__checkbox");
 
 //FORM FETCH
-const url = "https://jsonplaceholder.typicode.com/posts";
+
 const inputName = document.querySelector(".name");
 const inputEmail = document.querySelector(".email");
 
 const postForm = (e) => {
-  const regex =
-    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   const dataName = inputName.value;
   const dataEmail = inputEmail.value;
   const errorMessage = document.querySelector(".error-text");
@@ -166,7 +209,7 @@ const postForm = (e) => {
     return false;
   } else if (!dataEmail.match(regex)) {
     errorEmail.style.display = "block";
-     errorMessageCheck.style.display = "none";
+    errorMessageCheck.style.display = "none";
     errorMessage.style.display = "none";
     confirmMessage.style.display = "none";
   } else {
